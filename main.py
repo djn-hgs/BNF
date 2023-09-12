@@ -1,14 +1,16 @@
 import lark
 
 command_grammar = '''
+
 start: comment | command
+
+comment: " "*"#"text
+
 command: print_command
         | for_command
         | assignment_command
         | comparison_command
         | increment_command
-
-comment: "#"text
 
 comparison_command: expression operator expression
 assignment_command: let variable equals number
